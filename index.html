@@ -36,5 +36,17 @@
 				<input id="myInput" type="email" name="myInput" ng-model="myInput" required="true">
 			</form>
 			<p>The input's valid state is: <strong>{{myForm.myInput.$valid}}</strong></p>
+
+			<h2>Services</h2>
+			<div ng-controller="HelloController">
+				<p>{{fromService}}</p>
+				<p>{{fromFactory}}</p>
+			</div>
+
+			<h2>Promises</h2>
+			<div ng-controller="PromisesController">
+				<p>{{promiseKaren}}</p>
+				<p>{{promiseJohn}}</p>
+			</div>
 		</body>
 </html>
