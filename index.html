@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+	<html ng-app="SampleApp">
+		<head>
+			<title>My First APP</title>
+			<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+			<script src="./main.js"></script>
+		</head>
+		<body>
+		    <h2>Binding</h2>
+		    	<label for="firstName">First Name:</label>
+		      	<input type="text" id="firstName" name="firstName" ng-model="firstName"></input>
+ 				<p>First name: {{firstName}}</p>
+  			
+  			<h2>Controllers</h2>
+  			<div ng-controller="KnockingController">
+ 				<button ng-click="paulKnocks()"> Paul</button>
+ 				<button ng-click="johnKnocks()">John</button>
+ 				<p>{{whoKnocks}} the one who knocks</p>
+			</div>
+
+			<h2>Directives</h2>
+			<my-first-directive></my-first-directive>
+			<div my-first-directive></div>
+			<div class="myFirstDirective"></div>
+			<!-- directive: myFirstDirective -->
+
+			<h2>Filters</h2>
+			<div>
+				Number :<input ng-model="number" type="text"><br>
+				{{number | NumberIsEven}}
+			</div>
+
+			<h2>Forms</h2>
+			<form name="myForm">
+			    <label for="myInput">Email :</label>
+				<input id="myInput" type="email" name="myInput" ng-model="myInput" required="true">
+			</form>
+			<p>The input's valid state is: <strong>{{myForm.myInput.$valid}}</strong></p>
+		</body>
+</html>
