@@ -89,6 +89,7 @@ myApp.controller("PromisesController", ["$scope", "$q", "$timeout", function($sc
 
 }]);
 
+//Http Service
 myApp.controller("HttpServiceController", ["$scope", "$http", function($scope, $http) {
 	$scope.serviceResponse = null;
 
