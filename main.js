@@ -3,11 +3,11 @@ var myApp = angular.module('SampleApp', []);
 //Controllers
 myApp.controller("KnockingController", ["$scope", function($scope) {
     $scope.whoKnocks = "I'm ";
-    
+
     $scope.paulKnocks = function() {
     	$scope.whoKnocks = "Paul is";
     };
-    
+
     $scope.johnKnocks = function() {
     	$scope.whoKnocks = "John is";
     };
@@ -44,18 +44,18 @@ myApp.factory('testFactory', function(){
     return {
         sayHello: function(text){
             return "Factory says \"Hello " + text + "\"";
-        }  
-    }               
+        }
+    }
 });
 
 myApp.service('testService', function(){
         this.sayHello = function(text){
         return "Service says \"Hello " + text + "\"";
-    };        
+    };
 });
 
 myApp.controller("HelloController", ["$scope", "testService", "testFactory", function HelloController($scope, testService, testFactory) {
-		$scope.fromService = testService.sayHello("World");  
+		$scope.fromService = testService.sayHello("World");
 		$scope.fromFactory = testFactory.sayHello("World");
 }]);
 
@@ -87,4 +87,18 @@ myApp.controller("PromisesController", ["$scope", "$q", "$timeout", function($sc
 		$scope.promiseJohn = reason;
 	});
 
+}]);
+
+myApp.controller("HttpServiceController", ["$scope", "$http", function($scope, $http) {
+	$scope.serviceResponse = null;
+
+	$http({
+	  method: 'GET',
+	  url: 'http://api.themoviedb.org/3/discover/movie?&sort_by=popularity.desc&page=1&api_key=579989834308dc1b0309510990ad9246'
+	}).then(function successCallback(response) {
+		$scope.serviceResponse = "Service response OK! There are " + response.data.results.length + " results";
+
+	}, function errorCallback(response) {
+		$scope.serviceResponse = "Service error! Status code " + response.status;
+	});
 }]);

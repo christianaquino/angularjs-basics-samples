@@ -10,7 +10,7 @@
 		    	<label for="firstName">First Name:</label>
 		      	<input type="text" id="firstName" name="firstName" ng-model="firstName"></input>
  				<p>First name: {{firstName}}</p>
-  			
+
   			<h2>Controllers</h2>
   			<div ng-controller="KnockingController">
  				<button ng-click="paulKnocks()"> Paul</button>
@@ -47,6 +47,11 @@
 			<div ng-controller="PromisesController">
 				<p>{{promiseKaren}}</p>
 				<p>{{promiseJohn}}</p>
+			</div>
+
+			<h2>Http Service</h2>
+			<div ng-controller="HttpServiceController">
+				<p>{{serviceResponse}}</p>
 			</div>
 		</body>
 </html>
